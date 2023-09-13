@@ -28,7 +28,7 @@ import os
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['web-production-e4bc.up.railway.app', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
 
 
