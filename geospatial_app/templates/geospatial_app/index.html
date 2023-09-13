@@ -1,0 +1,312 @@
+
+{% extends "geospatial_app/base.html" %}
+{% load static %}
+
+{% block title %} 
+Geospatial Digital Systems Limited: one company, bringing together digital technology, ideas, and solutions. 
+{% endblock %}
+ 
+{% block header %} Our Team Members {% endblock %}
+
+{% block content %}
+<style>
+    /* navbar css */
+    .navbar-skyblue   {
+    background-color: skyblue;
+    
+    }
+    .footer{
+      background-color: skyblue;
+    }
+  
+  /* Define the animation for individual lines */
+  .line-by-line-slide-in {
+    opacity: 0; /* Start with 0 opacity */
+    transform: translateX(-100%); /* Start off-screen to the left */
+    animation: lineSlideIn 1.5s ease-in-out forwards; /* Use the lineSlideIn animation with a duration of 1.5 seconds */
+    display: block; /* Make each line a block element to control individual animation */
+    margin-bottom: 10px; /* Add space between lines */
+  }
+  
+  /* Define the lineSlideIn animation */
+  @keyframes lineSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%); /* Start off-screen to the left */
+    }
+    100% {
+      opacity: 1; /* Fade in to full opacity */
+      transform: translateX(0); /* Slide in to the original position */
+    }
+  }
+  /* end of animation */
+  
+  /* Center text vertically on both desktop and mobile screens */
+  .bg-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 500px; /* Adjust the desired height for desktop view */
+  }
+  
+  /* Reduce font size and container height for mobile screens */
+  @media (max-width: 767px) {
+    .bg-image {
+      height: 500px; /* Adjust the desired height for mobile view */
+    }
+  
+    .bg-image p {
+      font-size: 14px; /* Adjust the desired font size for mobile view */
+    }
+  }
+  
+  /* clinet reviews */
+  .client-reviews {
+    padding: 20px 0;
+    background-color: skyblue;
+  }
+  
+  .client-reviews h2 {
+    font-size: 28px;
+    color: #333;
+  }
+  
+  .review-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    min-height: 330px;
+  }
+  
+  .review-avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  .review-content h3 {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  .review-content p {
+    font-size: 16px;
+    color: #777;
+  }
+  /* effect  */
+  /* Add hover effect to review cards */
+  .review-card:hover {
+    transform: translateY(-5px); /* Move the card up slightly on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Increase the shadow on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add a smooth transition effect */
+  }
+  /* trusted by area */
+  .trusted-by {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+  }
+  
+  .trusted-by h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .partners {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .partner {
+    margin: 10px;
+   
+  }
+  
+  .partner img {
+    width: 80px; /* Adjust the size of partner logos */
+    height: auto;
+    opacity: 0.7; /* Reduce the opacity for a faded effect */
+    transition: opacity 0.3s ease; /* Add a smooth opacity transition */
+  }
+  
+  .partner img:hover {
+    opacity: 1; /* Increase opacity on hover */
+  }
+  
+  /* text fancy styl  */
+  .cardtitle {
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        color: rgb(234, 238, 239); /* Change the color to your desired color */
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .underline {
+        text-decoration: underline;
+        color: red;
+    }
+  </style>
+
+<section style="margin: -10px;" class="jumbotroimage">
+  <div
+    class="bg-image d-flex align-items-center p-5 text-center rounded mb-5 animated-background"
+    style="background-image: url('{% static 'images/img3.jfif' %}'); margin: -30px ;font-weight: bold; color: #fff; background-color: rgba(0, 0, 0, 0.6);"
+  >
+    <div class="w-100">
+      <br> <br>
+      <h3 class="mb-3 h2 cardtitle underline">Welcome to our world</h3>
+      <br>
+      <p style="font-size: 18px;">
+        <span style="font-size: 18px;" class="line-by-line-slide-in cardtitle">Geospatial Digital Systems Limited: one company, bringing together digital technology, ideas, and solutions.</span>
+        <span style="font-size: 18px;" class="line-by-line-slide-in cardtitle">Our business involves digital processing of your geospatial data.</span>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <br> <br>
+          <button style="background-color: skyblue;" class="btn animated-button" type="button">Contact Us</button>
+        </div>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <section class="trusted-by">
+    <div class="container">
+      <h3 class="text-center">Trusted By</h3>
+      <div class="partners">
+        <div class="partner">
+          <img src="{% static 'images/logo1.jfif' %}" alt="Partner1">
+        </div>
+        <div class="partner">
+          <img src="{% static 'images/logo2.jfif' %}" alt="Partner2">
+        </div>
+        <div class="partner">
+          <img src="{% static 'images/logo3.jfif' %}" alt="Partner3">
+        </div>
+        <!-- Add more partner logos as needed -->
+      </div>
+    </div>
+  </section>
+  
+
+
+  <section class="Productsicons text-center p-5">
+    <div class="fa-3x">
+      <i class="fas fa-earth-africa fa-spin"></i><br>
+      
+    </div>
+    <h3 style="font-size: 16px;">Cadestral Production Services</h3>
+
+    <br>
+
+    <div class="fa-3x">
+      <i class="fas fa-tachograph-digital fa-spin"></i><br>
+    </div>
+    <h3 style="font-size: 16px;">Graphic Data Conversion</h3>
+
+    <br>
+
+    <div class="fa-3x">
+      <i class="fas fa-globe fa-spin"></i><br>
+    </div>
+    <h3 style="font-size: 16px;">Geographic Information System</h3>
+ 
+
+    <br>
+
+    <div class="fa-3x">
+      <i class="fas fa-location-crosshairs fa-spin"></i><br>
+    </div>
+    <h3 style="font-size: 16px;">Topographic Survey Production</h3>
+  
+  </section>
+
+
+   <section class="our work container p-5">
+  <h3 class="text-center p-5">Our Work</h3>
+    <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape"/>
+        </div>
+        <div class="carousel-item">
+          <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera"/>
+        </div>
+        <div class="carousel-item">
+          <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits"/>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+   </section>
+
+
+
+  <section class="firstcard p-5">
+    <section class="client-reviews">
+      <div class="container">
+        <h3 class="text-center">Client Reviews</h3>
+        <br>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="review-card">
+              <div class="review-avatar">
+                <img src="{% static 'images/img2.jfif' %}" alt="Client 1">
+              </div>
+              <div class="review-content">
+                <h3>John</h3>
+                <p>"I had an amazing experience with your company. The service was exceptional, and the results exceeded my expectations."</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="review-card">
+              <div class="review-avatar">
+                <img src="{% static 'images/img3.jfif' %}" alt="Client 2">
+              </div>
+              <div class="review-content">
+                <h3>Musa</h3>
+                <p>"Your team is professional and knowledgeable. I'm impressed with the quality of work you delivered. Highly recommended!"</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="review-card">
+              <div class="review-avatar">
+                <img src="{% static 'images/img1.webp' %}" alt="Client 3">
+              </div>
+              <div class="review-content">
+                <h3>Emmanuel</h3>
+                <p>"I've been a satisfied customer for years. Your company consistently provides top-notch services."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </section>
+  
+ <!-- Add a container for the map -->
+ <h3 class="text-center p-5">Our Location</h3>
+ <div class="container" id="map" style="height: 400px;"></div>
+
+<br>
+
+
+{% endblock %}

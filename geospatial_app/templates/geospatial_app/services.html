@@ -1,0 +1,70 @@
+{% extends "geospatial_app/base.html" %}
+
+{% block title %} Our Services {% endblock %}
+ 
+{% block header %} Our Services {% endblock %}
+
+{% block content %}
+<style>
+
+
+    .cardteam:hover {
+        transform: scale(1.05); /* Scale the card on hover */
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+    }
+</style>
+
+<h3 class="text-center p-5">Our Services</h3>
+<style>
+    /* Add animation styles */
+    .card {
+      opacity: 0.9;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+  
+    /* Apply the animation on hover */
+    .card:hover {
+      opacity: 1;
+      transform: translateY(0);
+      background-color: skyblue;
+    }
+  </style>
+  
+  <section style="background-color: hsl(200, 60%, 99%);margin-left: 10%; margin-right: 10%;" class="team-members text-center p-5 " >
+      <div  class="row">
+        {% for service in services_list %}
+        <div class="col-md-6 col-12 mb-3">
+          <div class="card" style="max-width: 540px;" >
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                src="{{ service.image.url }}" 
+                  alt="Trendy Pants and Shoes"
+                  class="img-fluid rounded-start"
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h3 class="card-title">{{ service.title }}</h3>
+                  <p class="card-text">
+                    {{ service.description }}
+                  </p>
+                  <p class="card-text">
+                    <a href="#!" style="background-color: skyblue;" class="btn">View More</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    
+
+
+
+
+<br> <br> <br> <br> <br> <br>
+{% endblock %}

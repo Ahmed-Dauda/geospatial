@@ -1,0 +1,49 @@
+{% extends "geospatial_app/base.html" %}
+
+{% block title %} About Us {% endblock %}
+ 
+{% block header %} About Us {% endblock %}
+
+{% block content %}
+<style>
+    /* Custom styles for the card and effect */
+
+</style>
+
+
+           
+                <section  class="about-us p-5">
+                    {% for about in about_us %}
+                        <!-- Display information about the team members or the company's history as needed -->
+                        <div class="card">
+                            <h3 style="text-align: left;" class="card-body">{{ about.title }}</h3>
+                           
+                            <img style="max-width: 100%; height: auto; max-height: 700px; transition: transform 0.3s ease-in-out;"
+                            src="{{ about.image.url }}" 
+                            alt="Trendy Pants and Shoes"
+                            class="about us image"
+                            onmouseover="hoverImage(this);"
+                            onmouseout="unhoverImage(this);"
+                                />
+                       
+                         
+                            <div class="card-body">{{ about.content }}</div>
+                          </div>
+
+                    {% endfor %}
+
+               
+                      </div>
+                </section>
+
+
+<script>
+    function hoverImage(img) {
+        img.style.transform = 'scale(1.05)';
+    }
+
+    function unhoverImage(img) {
+        img.style.transform = 'scale(1)';
+    }
+</script>            
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "geospatial_app/base.html" %}
+
+{% load static %}
+{% load cloudinary %} 
+
+{% block title %} Our Awesome Team Members {% endblock %}
+ 
+{% block header %} Our Team Members {% endblock %}
+
+{% block content %}
+<style>
+
+
+    .cardteam:hover {
+        transform: scale(1.00); /* Scale the card on hover */
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+    }
+</style>
+
+<h3 class="text-center p-5">Those behin the success story of Geospatial Digital Systems (GDS) Ltd</h3>
+<section style="background-color: hsl(200, 60%, 99%);" class="team-members text-center p-5">
+  
+    <div class="d-flex flex-wrap justify-content-center align-items-center">
+        {% for staff in staff_list %}
+        <div class="cardteam card mb-4 mx-2" style="width: 300px; background-color: skyblue;">
+            <!-- <img src="{{ staff.profile_image.url }}" alt="My Image"> -->
+            <img style="height: auto;width: 200px;" src="{{ staff.profile_image.url }}"  class="card-img-top " alt="Fissure in Sandstone"/>
+            <!-- <img style="height: auto;width: 200px;" src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top rounded-circle" alt="Fissure in Sandstone"/> -->
+            <div class="card-body">
+                <h3 style="font-size: 18px;" class="card-title">{{ staff.name }}</h3>
+                <p class="card-text">{{ staff.position }}</p>
+                <a href="#!" style="background-color: skyblue;" class="btn">View More</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+
+{% endblock %}
