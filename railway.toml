@@ -3,3 +3,7 @@ path = "static"
 
 [static]
 path = "media"
+
+[build]
+language = "python"
+version = "3.9"
