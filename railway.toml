@@ -1,9 +1,6 @@
 [static]
-path = "static"
-
-[static]
-path = "media"
+path = ["static", "media"]
 
 [build]
 language = "python"
-version = "3.9"
+version = "3.11.5"
