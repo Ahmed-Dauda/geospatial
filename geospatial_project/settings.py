@@ -27,8 +27,8 @@ SECRET_KEY = 'django-insecure-20b^&)=x@t%l+v_gf=+72ofc9_)fka==sg9hjfyh$o9p^o%!3c
 
 import os
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = False
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
 ALLOWED_HOSTS = ['web-production-e4bc.up.railway.app', '127.0.0.1']
@@ -133,7 +133,9 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 
-STATIC_ROOT =os.path.join(BASE_DIR, 'static')
+STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles/')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
+
 MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
 
 
