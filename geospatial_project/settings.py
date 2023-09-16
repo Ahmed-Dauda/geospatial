@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 from pathlib import Path
 
@@ -29,7 +32,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
 ALLOWED_HOSTS = ['web-production-e4bc.up.railway.app', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-e4bc.up.railway.app/']
 
 
 
@@ -152,8 +155,10 @@ import cloudinary.api
 cloudinary.config(
     cloud_name='dcomiviua',
     api_key='365524854341134',
-    api_secret='_a3awGtK3hznGaSpvLff2RFTt_I'
+    api_secret='_a3awGtK3hznGaSpvLff2RFTt_I',
+      secure = True
 )
+
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
