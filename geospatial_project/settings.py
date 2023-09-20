@@ -27,11 +27,12 @@ SECRET_KEY = 'django-insecure-20b^&)=x@t%l+v_gf=+72ofc9_)fka==sg9hjfyh$o9p^o%!3c
 
 import os
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
-ALLOWED_HOSTS = ['web-production-e4bc.up.railway.app', '127.0.0.1']
+# ALLOWED_HOSTS = ['web-production-e4bc.up.railway.app', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://web-production-e4bc.up.railway.app']
 
 
@@ -83,14 +84,13 @@ WSGI_APPLICATION = 'geospatial_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
