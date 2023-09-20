@@ -37,7 +37,7 @@ CSRF_TRUSTED_ORIGINS = ['https://web-production-e4bc.up.railway.app']
 
 
 
-# Application definitions
+# Applications
 
 INSTALLED_APPS = [
     'django.contrib.admin',
