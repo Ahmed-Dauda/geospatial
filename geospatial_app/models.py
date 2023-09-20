@@ -32,7 +32,7 @@ class AboutUs(models.Model):
 class OurWork(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    image = CloudinaryField('about_us_image', null=True, blank=True)
+    image = CloudinaryField('ourwork_image', null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -46,3 +46,22 @@ class Service(models.Model):
     def __str__(self):
         return self.title
 
+class TrustedBy(models.Model):
+
+    image = CloudinaryField('trustedby_image', null=True, blank=True)
+
+class Reviews(models.Model):
+    title = models.CharField(max_length=100)
+    desc = models.TextField()
+    image = CloudinaryField('Review_image', null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+    
+class BackgroundImage(models.Model):
+
+    image = CloudinaryField('backgroundimg_image', null=True, blank=True)
+
+class Logo(models.Model):
+
+    image = CloudinaryField('logo_image', null=True, blank=True)

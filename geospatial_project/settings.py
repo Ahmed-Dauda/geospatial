@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-20b^&)=x@t%l+v_gf=+72ofc9_)fka==sg9hjfyh$o9p^o%!3c
 
 import os
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
@@ -132,6 +132,7 @@ import os
 STATIC_URL = '/static/'
 
 STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'

@@ -153,13 +153,93 @@ Geospatial Digital Systems Limited: one company, bringing together digital techn
         text-decoration: underline;
         color: red;
     }
+
+    /* truestby */
+    .trusted-by {
+  /* Add any other styles specific to your section */
+}
+
+.container {
+  /* Add any other styles specific to your container */
+}
+
+.partners-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap into multiple rows */
+  justify-content: center; /* Center items horizontally */
+}
+
+.partner {
+  /* Add spacing and styles for each partner */
+  margin: 10px; /* Adjust margin as needed */
+}
+
+
+/* reviews area  */
+
+.client-reviews {
+  /* Add any other styles specific to your section */
+}
+
+.container {
+  /* Add any other styles specific to your container */
+}
+
+.reviews-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap into multiple rows */
+  justify-content: space-around; /* Space items equally */
+}
+
+.review-card {
+  border: 1px solid #ccc; /* Add a border for each review card */
+  padding: 20px;
+  margin: 10px;
+  width: 30%; /* Adjust width as needed */
+}
+
+.review-avatar img {
+  width: 100px; /* Adjust avatar image width */
+  height: 100px; /* Adjust avatar image height */
+  border-radius: 50%; /* Make the avatar image circular */
+}
+
+.review-content {
+  margin-left: 10px; /* Adjust spacing between avatar and content */
+}
+
+.review-content h3 {
+  font-size: 1.2rem; /* Adjust heading font size */
+}
+
+/* Media query for mobile devices (max-width: 767px) */
+@media (max-width: 767px) {
+  .reviews-container {
+    flex-direction: column; /* Change to a single column layout */
+    align-items: center; /* Center items in the column */
+  }
+
+  .review-card {
+    width: 80%; /* Adjust width for mobile view */
+  }
+}
+
+/* Adjust maximum height for carousel items on mobile devices */
+@media (max-width: 767px) {
+  .carousel-item img {
+    max-height: 200px; /* Adjust the maximum height as needed */
+  }
+}
+
   </style>
 
 <section style="margin: -10px;" class="jumbotroimage">
+
   <div
     class="bg-image d-flex align-items-center p-5 text-center rounded mb-5 animated-background"
-    style="background-image: url('/static/images/img3.jfif'); margin: -30px ;font-weight: bold; color: #fff; background-color: rgba(0, 0, 0, 0.6);"
+    style="background-image: url('{{ backgroundimage.image.url }}'); margin: -30px ;font-weight: bold; color: #fff; background-color: rgba(0, 0, 0, 0.6);"
   >
+
     <div class="w-100">
       <br> <br>
       <h3 class="mb-3 h2 cardtitle underline">Welcome to our world</h3>
@@ -177,24 +257,20 @@ Geospatial Digital Systems Limited: one company, bringing together digital techn
 </section>
 
 
-  <section class="trusted-by">
-    <div class="container">
-      <h3 class="text-center">Trusted By</h3>
-      <div class="partners">
+<section class="trusted-by">
+  <div class="container">
+    <h3 class="text-center">Trusted By</h3>
+    <br>
+    <div class="partners-container">
+      {% for trusted in trustedby %}
         <div class="partner">
-          <img src="{% static 'images/logo1.jfif' %}" alt="Partner1">
+          <img src="{{ trusted.image.url }}" alt="Partner1">
         </div>
-        <div class="partner">
-          <img src="{% static 'images/logo2.jfif' %}" alt="Partner2">
-        </div>
-        <div class="partner">
-          <img src="{% static 'images/logo3.jfif' %}" alt="Partner3">
-        </div>
-        <!-- Add more partner logos as needed -->
-      </div>
+      {% endfor %}
     </div>
-  </section>
-  
+  </div>
+</section>
+
 
 
   <section class="Productsicons text-center p-5">
@@ -229,86 +305,63 @@ Geospatial Digital Systems Limited: one company, bringing together digital techn
   </section>
 
 
-   <section class="our work container p-5">
-  <h3 class="text-center p-5">Our Work</h3>
+
+<section class="our work container">
+    <h3 class="text-center p-5">Our Work</h3>
     <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape"/>
-        </div>
-        <div class="carousel-item">
-          <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera"/>
-        </div>
-        <div class="carousel-item">
-          <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits"/>
-        </div>
+        {% for work in works %}
+          <div class="carousel-item{% if forloop.first %} active{% endif %} ">
+            <img src="{{ work.image.url }}" class="d-block w-100" style="max-height: 500px;" alt="{{ work.title }}">
+          </div>
+        {% endfor %}
       </div>
       <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
       <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-
-   </section>
-
-
-
-  <section class="firstcard p-5">
-    <section class="client-reviews">
-      <div class="container">
-        <h3 class="text-center">Client Reviews</h3>
-        <br>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="review-card">
-              <div class="review-avatar">
-                <img src="{% static 'images/img1.webp' %}" alt="Client 1"> 
-              
-
-              </div>
-              <div class="review-content">
-                <h3>John</h3>
-                <p>"I had an amazing experience with your company. The service was exceptional, and the results exceeded my expectations."</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="review-card">
-              <div class="review-avatar">
-                <img src="{% static 'images/img3.jfif' %}" alt="Client 2">
-              </div>
-              <div class="review-content">
-                <h3>Musa</h3>
-                <p>"Your team is professional and knowledgeable. I'm impressed with the quality of work you delivered. Highly recommended!"</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="review-card">
-              <div class="review-avatar">
-                <img src="{% static 'images/img1.webp' %}" alt="Client 3">
-              </div>
-              <div class="review-content">
-                <h3>Emmanuel</h3>
-                <p>"I've been a satisfied customer for years. Your company consistently provides top-notch services."</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
   </section>
+  
+  
+<br> <br><br> <br>
+
+   <section class="client-reviews">
+    <div class="container">
+      <h3 class="text-center">Client Reviews</h3>
+      <br>
+      <div class="reviews-container">
+        {% for review in reviews %}
+          <div class="review-card">
+            <div class="review-avatar">
+              <img src="{{ review.image.url }}" alt="Client 1"> 
+            </div>
+            <div class="review-content">
+              <h3>{{ review.title }}</h3>
+              <p>{{ review.desc }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  
+
   
  <!-- Add a container for the map -->
  <h3 class="text-center p-5">Our Location</h3>
  <div class="container" id="map" style="height: 400px;"></div>
 
-<br>
+<br> <br> <br>
 
+
+<!-- carousel  -->
+<script>
+  var myCarousel = new bootstrap.Carousel(document.getElementById('carouselExampleControls'));
+</script>
 
 {% endblock %}

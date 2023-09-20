@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 from django.shortcuts import render
-from .models import Service, AboutUs, Staff
+from .models import Service, AboutUs, Staff, TrustedBy, Reviews, BackgroundImage, Logo
 
 
 from django.shortcuts import render
@@ -12,8 +12,25 @@ from .models import Staff, Service, AboutUs, OurWork
 def index(request):
     staff = Staff.objects.all()
     services = Service.objects.all()
+    trustedby = TrustedBy.objects.all()
+    reviews = Reviews.objects.all()
     about_us = AboutUs.objects.first()
-    return render(request, 'geospatial_app/index.html', {'staff': staff, 'services': services, 'about_us': about_us})
+    backgroundimage = BackgroundImage.objects.first()
+    logo = Logo.objects.first()
+    works = OurWork.objects.all()
+
+    context = {
+        'staff': staff,
+        'services': services, 
+        'about_us': about_us,
+        'trustedby': trustedby,
+        'reviews':reviews,
+        'backgroundimage':backgroundimage,
+        "logo":logo,
+        "works":works
+        }
+    
+    return render(request, 'geospatial_app/index.html', context = context)
 
 
 
