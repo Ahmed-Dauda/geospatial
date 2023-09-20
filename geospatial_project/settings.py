@@ -14,7 +14,7 @@ import os
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 from pathlib import Path
-# DATABASE_URL
+DATABASE_URL = "postgresql://postgres:OYmqT3Sweo5EFxkqVC8F@containers-us-west-196.railway.app:6629/railway"
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
