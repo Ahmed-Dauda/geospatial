@@ -1,5 +1,5 @@
 {% extends "geospatial_app/base.html" %}
-
+{% load static %}
 {% block title %} Our Services {% endblock %}
  
 {% block header %} Our Services {% endblock %}
@@ -31,7 +31,7 @@
     }
   </style>
   
-  <section style="background-color: hsl(200, 60%, 99%);margin-left: 10%; margin-right: 10%;" class="team-members text-center p-5 " >
+  <section style="background-color: hsl(200, 60%, 99%);margin-left: 5%; margin-right: 5%;" class="team-members text-center" >
       <div  class="row">
         {% for service in services_list %}
         <div class="col-md-6 col-12 mb-3">
