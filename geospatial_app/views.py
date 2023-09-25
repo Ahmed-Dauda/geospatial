@@ -1,13 +1,10 @@
 from django.shortcuts import render
-
+from django.views.generic import DetailView
 # Create your views here.
 
-from django.shortcuts import render
-from .models import Service, AboutUs, Staff, TrustedBy, Reviews, BackgroundImage, Logo
 
+from .models import Service, AboutUs, Staff, TrustedBy, Reviews, BackgroundImage, Logo, OurWork
 
-from django.shortcuts import render
-from .models import Staff, Service, AboutUs, OurWork
 
 def index(request):
     staff = Staff.objects.all()
@@ -48,4 +45,16 @@ def about_us(request):
 def staff(request):
     staff_list = Staff.objects.all()
     return render(request, 'geospatial_app/staff.html', {'staff_list': staff_list})
+
+
+class StaffDetail(DetailView):
+    model = Staff
+    template_name = 'geospatial_app/staffdetail.html'
+    context_object_name = 'staffdetail'
+
+
+class ServicesDetail(DetailView):
+    model = Service
+    template_name = 'geospatial_app/servicedetail.html'
+    context_object_name = 'service' 
 

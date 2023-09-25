@@ -1,0 +1,61 @@
+{% extends "geospatial_app/base.html" %}
+{% load static %}
+{% block title %} Staff Details {% endblock %}
+ 
+{% block header %}  Staff Details {% endblock %}
+
+{% block content %}
+<style>
+    /* Custom styles for the card and effect */
+/* fancy area */
+h3 {
+        text-align:left;
+        font-size: 24px;
+        font-weight: bold;
+        color: rgb(56, 63, 65); /* Change the color to your desired color */
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+</style>
+
+
+         
+                <section   class="about-us">
+                
+                        <!-- Display information about the team members or the company's history as needed -->
+                        <div style="padding:0px 50px 50px 50px;" class="car">
+                            <h3 style="text-align: left; padding-top: 50px;" class="card-body">Staff Profile</h3>
+                           <br>
+                            <img style="max-height: 700px;width: 100% ;transition: transform 0.3s ease-in-out;"
+                            src="{{ staffdetail.profile_image.url }}" 
+                            alt="Trendy Pants and Shoes"
+                            class="about us image"
+                            onmouseover="hoverImage(this);"
+                            onmouseout="unhoverImage(this);"
+                                />
+                                <br>
+                             <br>
+                            <h3 class="">Name: {{ staffdetail }}</h3>
+                            <h3 class="">position: {{ staffdetail.position }}</h3>
+                            <h3 class="">DOB: {{ staffdetail.dob }}</h3>
+                            <h3 class="">Qualification: {{ staffdetail.qualification }}</h3>
+                            <h3 class="">Status: {{ staffdetail.status }}</h3> <hr>
+                            <div class="">{{ staffdetail.desc }}</div>
+                          </div>
+
+
+               
+                      </div>
+                </section>
+
+<script>
+    function hoverImage(img) {
+        img.style.transform = 'scale(1.05)';
+    }
+
+    function unhoverImage(img) {
+        img.style.transform = 'scale(1)';
+    }
+</script>            
+{% endblock %}

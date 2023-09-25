@@ -50,8 +50,8 @@
                   <p class="card-text">
                     {{ service.description }}
                   </p>
-                  <p class="card-text">
-                    <a href="#!" style="background-color: skyblue;" class="btn">View More</a>
+                  <p class="card-text">  
+                    <a href="{% url 'servicesdetail' service.id %}" style="background-color: skyblue;" class="btn">View More</a>
                   </p>
                 </div>
               </div>
